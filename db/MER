@@ -1,0 +1,77 @@
+### Models to be created
+
+# Client
+A client is the entity that keeps business relation with Nossa Obra app.
+Client means the company. Eg: Scholl, Office, ...
+
+## client - fields
+- name
+- document - usually cpf or cnpj
+- email
+- description
+- address
+
+# User
+User belongs to a client or no. 
+In case of no the user is an admin role with all the privileges over all clients
+## user - fields
+- name
+- username
+- email
+- document - usually cpf
+- phone
+- description
+- address
+- client
+
+# Project
+A project occurrence represents a build in execution or not.
+Project instance belongs to a client. All the users associated to respective client has access to the project
+
+## project - fields
+- name
+- description
+- client
+- start_date
+- status = {waiting_approval, approved, started, suspended, cancelled, executed}
+
+bin/rails generate model Project name:string description:text client:Client start_date:date status:integer
+
+# Category
+A category represents the kind of the activity
+
+## category - fields
+- name
+- description
+
+bin/rails generate model Category name:string description:text
+
+# Executor
+Responsable for the execution of an activity.
+A responsable executor represents the person to be called to answer about the activity
+
+## executor - fields
+- name
+- phone
+- email
+- address
+
+bin/rails generate Executor name:string phone:string email:string address:string
+
+# Activity
+An activity belongs to a project.
+Activity has categories, like "Alvenaria", "Eletrica", ...
+
+## activity - fields
+- name
+- description
+- project
+- category
+- start_date
+- duration
+- cost
+- bdi
+- complexity = {multiplication factor, default = 1, in that case final_cost will be cost * complexity}
+- executor
+
+bin/rails generate model Activity name:string description:text project:Project category:Category start_date:Date duration:integer cost:double bdi:double complexity:double executor:Executor
