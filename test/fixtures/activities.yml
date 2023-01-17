@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  project: one
+  Project: MyString
+  category: one
+  Category: MyString
+  start_date: 2023-01-17
+  duration: 1
+  cost: 1.5
+  bdi: 1.5
+  complexity: 1.5
+  executor: one
+  Executor: MyString
+
+two:
+  name: MyString
+  description: MyString
+  project: two
+  Project: MyString
+  category: two
+  Category: MyString
+  start_date: 2023-01-17
+  duration: 1
+  cost: 1.5
+  bdi: 1.5
+  complexity: 1.5
+  executor: two
+  Executor: MyString

@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+class DockerDev
+  def self.server
+    exec('docker compose run')
+  end
+
+  def self.console
+    exec('docker compose run -it web rails c')
+  end
+end
+
+DockerDev.start(ARGV)
